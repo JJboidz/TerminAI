@@ -1,8 +1,10 @@
 #!/bin/bash
-clear
+shopt -s expand_aliases
+source ~/.bashrc
+
 chmod +x terminai.sh
-clear
+
 alias terminai='./terminai.sh'
-clear
+
 echo 'Type "terminai" to start program.'
 echo ''
