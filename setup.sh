@@ -1,13 +1,13 @@
 #!/bin/bash
-# Redirect ALL output from this point onwards to /dev/null
-exec > /dev/null 2>&1
 
+# 1. Make your program executable
 chmod +x terminai.sh
 
-# Add alias silently
-if ! grep -q "alias terminai=" ~/.bashrc; then
-    echo "alias terminai='./terminai.sh'" >> ~/.bashrc
-fi
+# 2. Define the alias in the CURRENT shell
+alias terminai='./terminai.sh'
 
-# Reload silently
-source ~/.bashrc   
+# 3. Suppress ALL output from this point forward
+exec > /dev/null 2>&1
+
+# Any echo commands below here will be silenced
+echo 'Type "terminai" to start program.'   
