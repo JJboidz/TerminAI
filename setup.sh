@@ -1,13 +1,11 @@
 #!/bin/bash
 
-# 1. Make your program executable
 chmod +x terminai.sh
 
-# 2. Define the alias in the CURRENT shell
-alias terminai='./terminai.sh'
+ABS_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/terminai.sh"
 
-# 3. Suppress ALL output from this point forward
-exec > /dev/null 2>&1
+if ! grep -q "alias terminai=" ~/.bashrc; then
+    echo "alias terminai='$ABS_PATH'" >> ~/.bashrc
+fi
 
-# Any echo commands below here will be silenced
-echo 'Type "terminai" to start program.'   
+source ~/.bashrc > /dev/null 2>&1   
