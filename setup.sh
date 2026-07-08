@@ -1,8 +1,8 @@
 #!/bin/bash
 clear
-chmod +x terminAI.sh
+chmod +x terminai.sh
 clear
-alias terminai='./terminAI.sh'
+alias terminai='./terminai.sh'
 clear
 echo 'Type "terminai" to start program.'
 echo ''
