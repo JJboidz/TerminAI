@@ -1,11 +1,10 @@
 #!/bin/bash
-
 chmod +x terminai.sh
-
+# Get absolute path
 ABS_PATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/terminai.sh"
-
-if ! grep -q "alias terminai=" ~/.bashrc; then
-    echo "alias terminai='$ABS_PATH'" >> ~/.bashrc
-fi
-
-source ~/.bashrc > /dev/null 2>&1   
+# Append to .bashrc silently
+grep -qF "alias terminai=" ~/.bashrc || echo "alias terminai='$ABS_PATH'" >> ~/.bashrc   
+# Notify
+clear
+echo 'Type "terminai" to start.'
+echo ''
